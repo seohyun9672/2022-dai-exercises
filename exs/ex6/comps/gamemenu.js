@@ -37,6 +37,7 @@ class GameMenu extends HTMLElement {
         this.shadowRoot.querySelector(".menu").onclick = () => {
             document.querySelector("#gamebg").changeBG(`./imgs/${this.getAttribute("text")}.svg`);
             document.querySelector(".color").changeParticle(this.getAttribute("text"));   
+            document.querySelector(".gamehealth").resetHealth();
         }
     }
     //To-do - CREATE THE FUNCTIONALITIES HERE!

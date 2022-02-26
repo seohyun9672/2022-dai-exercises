@@ -80,6 +80,13 @@ updateHealthUI(){
         this.health = this.health +1;
         this.updateHealthUI();
     }
+    resetHealth(){
+        this.shadowRoot.querySelector(".healthbar").innerHTML=`
+            <div></div>
+            <div></div>
+            <div></div>
+            `
+    }
 
 }
 //MUST HAVE - define the tag for the custom elements
