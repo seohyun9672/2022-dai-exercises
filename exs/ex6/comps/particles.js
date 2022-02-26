@@ -10,10 +10,15 @@ template_particle.innerHTML = `
     background-color: red;
     border-radius: 10px;
   }
+  #decrease{
+      background: teal
+  }
+  #increase{
+      background: white
+  }
 </style>
-<div class="particle">
-
-</div>
+<div class="particle" id ="increase"></div>
+<div class="particle" id ="decrease"></div>
 `;
 
 //MUST HAVE - CREATE A CLASS WITH HTMLELEMENT POWERS (interfaces/functionalities)
@@ -30,8 +35,8 @@ class TheParticle extends HTMLElement {
     //MUST HAVE - FUNCTION THAT RUNS AFTER IT'S CONNECTED
     connectedCallback(){
         this.shadowRoot.appendChild(template_particle.content.cloneNode(true)); //use the template to make a clone
-
-
+        this.shadowRoot.querySelector("#decrease").onclick = () => this.handleParticleClick("decrease")
+        this.shadowRoot.querySelector("#increase").onclick = () => this.handleParticleClick("increase")
     //To-do - CREATE THE FUNCTIONALITIES HERE!
 }
 
@@ -56,8 +61,18 @@ class TheParticle extends HTMLElement {
             background-color: yellow;
             `
         }
-    
+        
     }
+    handleParticleClick(type="increase"){
+        if(type==="increase"){
+            document.querySelector(".gamehealth").increaseHealth();
+        }
+
+        if(type==="decrease"){
+            document.querySelector(".gamehealth").decreaseHealth();
+        }
+    }
+ 
 }
 //MUST HAVE - define the tag for the custom elements
 customElements.define("the-particle", TheParticle)
