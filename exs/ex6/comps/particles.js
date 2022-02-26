@@ -42,23 +42,35 @@ class TheParticle extends HTMLElement {
 
     changeParticle(type = "snow"){
         if(type === "snow"){ 
-            this.shadowRoot.querySelector(".particle").style.cssText= `
-            background-color: blue;
+            this.shadowRoot.querySelector("#increase").style.cssText= `
+            background-color: grey;
             `
-        }
-        if(type ==="desert"){
-            this.shadowRoot.querySelector(".particle").style.cssText= `
+            this.shadowRoot.querySelector("#decrease").style.cssText= `
             background-color: white;
             `
         }
+        if(type ==="desert"){
+            this.shadowRoot.querySelector("#increase").style.cssText= `
+            background-color: brown;
+            `
+            this.shadowRoot.querySelector("#decrease").style.cssText= `
+            background-color: yellow;
+            `
+        }
         if (type ==="valley"){
-            this.shadowRoot.querySelector(".particle").style.cssText= `
-            background-color: red;
+            this.shadowRoot.querySelector("#increase").style.cssText= `
+            background-color: pink;
+            `
+            this.shadowRoot.querySelector("#decrease").style.cssText= `
+            background-color: blue;
             `
         }
         if (type ==="forest"){
-            this.shadowRoot.querySelector(".particle").style.cssText= `
-            background-color: yellow;
+            this.shadowRoot.querySelector("#increase").style.cssText= `
+            background-color: lightgreen;
+            `
+            this.shadowRoot.querySelector("#decrease").style.cssText= `
+            background-color: green;
             `
         }
         
