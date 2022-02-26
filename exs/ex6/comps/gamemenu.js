@@ -34,14 +34,25 @@ class GameMenu extends HTMLElement {
         if(this.getAttribute("text")){
             this.shadowRoot.querySelector(".menu").innerText=this.getAttribute("text");
         }
-        this.shadowRoot.querySelector(".menu").onclick = () => {
-            document.querySelector("#gamebg").changeBG(`./imgs/${this.getAttribute("text")}.svg`);
-            document.querySelector(".color").changeParticle(this.getAttribute("text"));   
-            document.querySelector(".gamehealth").resetHealth();
+
+        if(this.getAttribute("text")==="start"){
+            this.shadowRoot.querySelector(".menu").onclick = () => this.startGame()
+
+        } else{
+            this.shadowRoot.querySelector(".menu").onclick = () => {
+                document.querySelector("#gamebg").changeBG(`./imgs/${this.getAttribute("text")}.svg`);
+                document.querySelector(".color").changeParticle(this.getAttribute("text"));   
+                document.querySelector(".gamehealth").resetHealth();
+                document.querySelector(".color").moveParticles(this.getAttribute("text"));  
+            } 
         }
+    }  
+    startGame(){
+        document.querySelector(".color").moveParticles();
     }
-    //To-do - CREATE THE FUNCTIONALITIES HERE!
 }
+    //To-do - CREATE THE FUNCTIONALITIES HERE!
+    
 
 //MUST HAVE - define the tag for the custom elements
 customElements.define("game-menu", GameMenu)
